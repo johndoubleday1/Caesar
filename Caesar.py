@@ -18,18 +18,18 @@ def caesar(rotated_string, number_to_rotate_by):
 while True:
     rotated_string = input(str('Enter text for Encrypt/Decrypt:'))
 
-    n = input('Encrypt or Decrypt (Decrypt is default)?')
+    n = input('Encrypt or Decrypt (e/d)?')
     print(n)
-    if 'encrypt' or 'Encrypt' or 'E' == n:
+    if 'e' == n:
         print('Encrypting')
-        key = input('Select key:')
+        key = input('Select key number:')
         key = int(key)
         number_to_rotate_by = key
         print(caesar(rotated_string, number_to_rotate_by))
 
     else:
         print('Decrypting')
-        key = input('Select key:')
+        key = input('Select key number:')
         key = int(key)
         number_to_rotate_by = key
         print(caesar(rotated_string, -(number_to_rotate_by)))
