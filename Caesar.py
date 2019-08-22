@@ -12,30 +12,35 @@ def caesar(rotated_string, number_to_rotate_by):
     return rotated_string.translate(str.maketrans(string.ascii_letters, letters))
 
 
-our_string = 'This is a test.'
-
-for i in range(len(string.ascii_letters)):
-    print(i, "|", caesar(our_string, i))
 
 
 
-rotated_string = input(str('Enter text for Encrypt/Decrypt'))
+while True:
+    rotated_string = input(str('Enter text for Encrypt/Decrypt:'))
 
-n = input('Encrypt or Decrypt?')
-print(n)
-if n is 'E':
-    print('this is the if statement')
-    key = input('Select key:')
-    key = int(key)
-    number_to_rotate_by = key
-    print(caesar(rotated_string, number_to_rotate_by))
+    n = input('Encrypt or Decrypt (Decrypt is default)?')
+    print(n)
+    if 'encrypt' or 'Encrypt' or 'E' == n:
+        print('Encrypting')
+        key = input('Select key:')
+        key = int(key)
+        number_to_rotate_by = key
+        print(caesar(rotated_string, number_to_rotate_by))
 
-if n is 'D':
-    print('this is the elif statement')
-    key = input('Select key:')
-    key = int(key)
-    number_to_rotate_by = key
-    print(caesar(rotated_string, -(number_to_rotate_by)))
+    else:
+        print('Decrypting')
+        key = input('Select key:')
+        key = int(key)
+        number_to_rotate_by = key
+        print(caesar(rotated_string, -(number_to_rotate_by)))
 
-else:
-    print('invalid input')
+    while True:
+        answer = input('Run again?(y/n):')
+        if answer in ('y', 'n'):
+            break
+        print('Invalid input.')
+    if answer == 'y':
+        continue
+    else:
+        print('Goodbye')
+        break
